@@ -244,38 +244,73 @@
       background: rgba(200,144,58,0.08);
     }
 
-    /* ── BADGE BAR ──────────────────────────────────── */
+    /* ── TICKER BAR ──────────────────────────────────── */
     .badge-bar {
       background: var(--gold);
-      padding: 20px 24px;
+      padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
+      overflow: hidden;
+      height: 58px;
+      position: relative;
     }
 
-    .badge-item {
+    .ticker-track {
+      position: relative;
+      height: 28px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+    }
+
+    .ticker-item {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: var(--white);
       font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      pointer-events: none;
     }
 
-    .badge-item svg {
-      flex-shrink: 0;
+    .ticker-item.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
-    .badge-dot {
+    .ticker-item.exit {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+
+    .ticker-dots {
+      display: flex;
+      gap: 6px;
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .ticker-dot {
       width: 5px;
       height: 5px;
-      background: rgba(255,255,255,0.5);
       border-radius: 50%;
+      background: rgba(255,255,255,0.35);
+      transition: background 0.3s;
+      cursor: pointer;
     }
+
+    .ticker-dot.active { background: rgba(255,255,255,0.9); }
 
     /* ── SECTION SHARED ─────────────────────────────── */
     .section { padding: 80px 24px; }
@@ -984,8 +1019,6 @@
     @media (max-width: 480px) {
       .hero { padding: 56px 20px 56px; }
       .section { padding: 56px 20px; }
-      .badge-bar { gap: 16px; }
-      .badge-dot { display: none; }
       .why-stat-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .why-visual { padding: 32px 24px; }
     }
@@ -1034,26 +1067,31 @@
   </div>
 </section>
 
-<!-- ── BADGE BAR ───────────────────────────────────────── -->
+<!-- ── TICKER BAR ──────────────────────────────────────── -->
 <div class="badge-bar">
-  <div class="badge-item">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Fast Approvals
+  <div class="ticker-track">
+    <div class="ticker-item active">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Fast Approvals
+    </div>
+    <div class="ticker-item">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Personalized Lending Guidance
+    </div>
+    <div class="ticker-item">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Construction-to-Perm Options
+    </div>
+    <div class="ticker-item">
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Land + Home Financing Available
+    </div>
   </div>
-  <div class="badge-dot"></div>
-  <div class="badge-item">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Personalized Lending Guidance
-  </div>
-  <div class="badge-dot"></div>
-  <div class="badge-item">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Construction-to-Perm Options
-  </div>
-  <div class="badge-dot"></div>
-  <div class="badge-item">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="white" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Land + Home Financing Available
+  <div class="ticker-dots">
+    <div class="ticker-dot active" data-index="0"></div>
+    <div class="ticker-dot" data-index="1"></div>
+    <div class="ticker-dot" data-index="2"></div>
+    <div class="ticker-dot" data-index="3"></div>
   </div>
 </div>
 
@@ -1459,6 +1497,32 @@
     }
     this.value = val;
   });
+
+  // Ticker bar
+  var tickerItems = document.querySelectorAll('.ticker-item');
+  var tickerDots = document.querySelectorAll('.ticker-dot');
+  var tickerCurrent = 0;
+
+  function tickerGoTo(next) {
+    tickerItems[tickerCurrent].classList.remove('active');
+    tickerItems[tickerCurrent].classList.add('exit');
+    tickerDots[tickerCurrent].classList.remove('active');
+    var prev = tickerCurrent;
+    tickerCurrent = next;
+    tickerItems[tickerCurrent].classList.add('active');
+    tickerDots[tickerCurrent].classList.add('active');
+    setTimeout(function() { tickerItems[prev].classList.remove('exit'); }, 500);
+  }
+
+  tickerDots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-index'));
+      if (idx !== tickerCurrent) { clearInterval(tickerInterval); tickerGoTo(idx); tickerInterval = setInterval(tickerAdvance, 3000); }
+    });
+  });
+
+  function tickerAdvance() { tickerGoTo((tickerCurrent + 1) % tickerItems.length); }
+  var tickerInterval = setInterval(tickerAdvance, 3000);
 
   // Scroll fade-in
   var observer = new IntersectionObserver(function(entries) {
