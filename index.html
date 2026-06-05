@@ -527,54 +527,53 @@
     }
 
     .form-inner {
-      max-width: 800px;
+      max-width: 660px;
       margin: 0 auto;
     }
 
     .form-header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .form-card {
       background: var(--white);
       border-radius: var(--radius-lg);
-      padding: 48px;
+      padding: 40px;
       box-shadow: var(--shadow-lg);
     }
 
     @media (max-width: 600px) {
-      .form-card { padding: 28px 20px; }
+      .form-card { padding: 24px 18px; }
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 16px;
     }
 
-    @media (max-width: 580px) {
+    @media (max-width: 520px) {
       .form-row { grid-template-columns: 1fr; }
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .form-group label {
       display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gray-700);
-      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-500);
+      margin-bottom: 7px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.09em;
     }
 
-    .form-group input,
-    .form-group select {
+    .form-group input {
       width: 100%;
-      padding: 14px 16px;
+      padding: 12px 14px;
       font-size: 15px;
       font-family: 'Inter', sans-serif;
       border: 2px solid var(--gray-200);
@@ -582,163 +581,160 @@
       background: var(--white);
       color: var(--text);
       transition: border-color 0.2s;
-      appearance: none;
     }
 
-    .form-group input:focus,
-    .form-group select:focus {
+    .form-group input:focus {
       outline: none;
       border-color: var(--gold);
     }
 
-    .form-group.full { grid-column: 1 / -1; }
+    .form-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 22px 0 10px;
+    }
 
-    .radio-group {
+    /* Land yes/no toggle */
+    .land-toggle {
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .radio-option {
-      flex: 1;
-      min-width: 100px;
-    }
-
-    .radio-option input[type="radio"] {
-      display: none;
-    }
-
-    .radio-option label {
-      display: block;
-      text-align: center;
-      padding: 14px 16px;
       border: 2px solid var(--gray-200);
       border-radius: var(--radius);
-      cursor: pointer;
+      overflow: hidden;
+    }
+    .land-toggle-opt { flex: 1; }
+    .land-toggle-opt input { display: none; }
+    .land-toggle-opt label {
+      display: block;
+      text-align: center;
+      padding: 11px;
       font-size: 14px;
       font-weight: 600;
       color: var(--gray-700);
-      text-transform: none;
-      letter-spacing: 0;
-      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      cursor: pointer;
+      border-right: 2px solid var(--gray-200);
+      transition: all 0.15s;
+    }
+    .land-toggle-opt:last-child label { border-right: none; }
+    .land-toggle-opt input:checked + label {
+      background: var(--black);
+      color: white;
     }
 
-    .radio-option input[type="radio"]:checked + label {
-      border-color: var(--gold);
-      background: rgba(200,144,58,0.08);
-      color: var(--gold-dark);
-    }
-
-    .radio-option label:hover {
-      border-color: var(--gold-light);
-    }
-
-    .conditional-field {
-      display: none;
-      margin-top: 16px;
-    }
-
+    .conditional-field { display: none; margin-top: 12px; }
     .conditional-field.visible { display: block; }
 
-    .form-section-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--black);
-      margin: 28px 0 16px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--gray-200);
-    }
-
-    .checkbox-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    @media (max-width: 480px) {
-      .checkbox-grid { grid-template-columns: 1fr; }
-    }
-
-    .checkbox-option input[type="checkbox"],
-    .checkbox-option input[type="radio"] {
-      display: none;
-    }
-
-    .checkbox-option label {
+    /* Pill toggles – home type */
+    .pill-group {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border: 2px solid var(--gray-200);
-      border-radius: var(--radius);
-      cursor: pointer;
-      font-size: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill-toggle input { display: none; }
+    .pill-toggle label {
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 100px;
+      font-size: 13px;
       font-weight: 500;
+      cursor: pointer;
       color: var(--gray-700);
-      transition: border-color 0.2s, background 0.2s;
+      background: var(--white);
+      transition: all 0.15s;
+      white-space: nowrap;
+      user-select: none;
     }
-
-    .checkbox-option label::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--gray-200);
-      border-radius: 4px;
-      flex-shrink: 0;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .checkbox-option input:checked + label {
-      border-color: var(--gold);
-      background: rgba(200,144,58,0.06);
-      color: var(--gold-dark);
-    }
-
-    .checkbox-option input:checked + label::before {
+    .pill-toggle label:hover { border-color: var(--gold-light); color: var(--gold-dark); }
+    .pill-toggle input:checked + label {
       background: var(--gold);
       border-color: var(--gold);
+      color: white;
+      font-weight: 600;
     }
 
-    .sq-checkbox-option input[type="radio"] { display: none; }
-
-    .sq-checkbox-option label {
+    /* Segmented control – bedrooms */
+    .seg-group {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
       border: 2px solid var(--gray-200);
       border-radius: var(--radius);
-      cursor: pointer;
+      overflow: hidden;
+      background: var(--gray-100);
+    }
+    .seg-option { flex: 1; }
+    .seg-option input { display: none; }
+    .seg-option label {
+      display: block;
+      text-align: center;
+      padding: 11px 8px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--gray-700);
-      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+      border-right: 1px solid var(--gray-200);
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .seg-option:last-child label { border-right: none; }
+    .seg-option input:checked + label {
+      background: var(--gold);
+      color: white;
     }
 
-    .sq-checkbox-option label::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--gray-200);
+    /* Step slider – home size */
+    .slider-wrap { padding: 4px 0 0; }
+    .slider-wrap input[type="range"] {
+      width: 100%;
+      appearance: none;
+      height: 5px;
+      border-radius: 3px;
+      background: var(--gray-200);
+      outline: none;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+    .slider-wrap input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      flex-shrink: 0;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .sq-checkbox-option input[type="radio"]:checked + label {
-      border-color: var(--gold);
-      background: rgba(200,144,58,0.06);
-      color: var(--gold-dark);
-    }
-
-    .sq-checkbox-option input[type="radio"]:checked + label::before {
       background: var(--gold);
-      border-color: var(--gold);
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      cursor: pointer;
     }
+    .slider-wrap input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      cursor: pointer;
+      border: none;
+    }
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+    }
+    .slider-tick {
+      font-size: 11px;
+      color: var(--gray-500);
+      text-align: center;
+      flex: 1;
+      line-height: 1.4;
+      transition: color 0.15s, font-weight 0.15s;
+    }
+    .slider-tick:first-child { text-align: left; }
+    .slider-tick:last-child { text-align: right; }
+    .slider-tick.active { color: var(--gold-dark); font-weight: 700; }
 
+    /* Submit */
     .submit-btn {
       width: 100%;
-      padding: 18px;
+      padding: 16px;
       background: var(--gold);
       color: var(--white);
       font-family: 'Inter', sans-serif;
@@ -748,10 +744,9 @@
       border: none;
       border-radius: var(--radius);
       cursor: pointer;
-      margin-top: 28px;
+      margin-top: 24px;
       transition: background 0.2s, transform 0.15s;
     }
-
     .submit-btn:hover {
       background: var(--gold-light);
       transform: translateY(-1px);
@@ -761,7 +756,7 @@
       font-size: 11px;
       color: var(--gray-500);
       text-align: center;
-      margin-top: 16px;
+      margin-top: 14px;
       line-height: 1.6;
     }
 
@@ -1242,7 +1237,7 @@
       </div>
       <form id="prequalForm" novalidate>
 
-        <div class="form-section-title">Your Contact Information</div>
+        <div class="form-section-label">Contact</div>
         <div class="form-row">
           <div class="form-group">
             <label for="fullName">Full Name *</label>
@@ -1258,28 +1253,23 @@
           <input type="email" id="email" name="email" placeholder="jane@example.com" required />
         </div>
 
-        <div class="form-section-title">Your Land Situation</div>
-        <div class="form-group">
-          <label>Do You Currently Own Land?</label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="landYes" name="ownsLand" value="yes" />
-              <label for="landYes">✓ Yes, I Own Land</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="landNo" name="ownsLand" value="no" />
-              <label for="landNo">✗ No, Still Searching</label>
-            </div>
+        <div class="form-section-label">Land Situation</div>
+        <div class="land-toggle" style="margin-bottom:4px;">
+          <div class="land-toggle-opt">
+            <input type="radio" id="landYes" name="ownsLand" value="yes" />
+            <label for="landYes">Yes, I Own Land</label>
+          </div>
+          <div class="land-toggle-opt">
+            <input type="radio" id="landNo" name="ownsLand" value="no" />
+            <label for="landNo">No, Still Searching</label>
           </div>
         </div>
-
         <div class="conditional-field" id="fieldLandLocation">
           <div class="form-group">
             <label for="landLocation">Property Location</label>
             <input type="text" id="landLocation" name="landLocation" placeholder="City, State or ZIP Code" />
           </div>
         </div>
-
         <div class="conditional-field" id="fieldBuildLocation">
           <div class="form-group">
             <label for="buildLocation">Desired Build Location</label>
@@ -1287,78 +1277,32 @@
           </div>
         </div>
 
-        <div class="form-section-title">Your Home Type</div>
-        <div class="form-group">
-          <label>Which type of home are you interested in? (Select all that apply)</label>
-          <div class="checkbox-grid">
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeModular" name="homeType" value="modular" />
-              <label for="typeModular">Modular Home</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeManufactured" name="homeType" value="manufactured" />
-              <label for="typeManufactured">Manufactured Home</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeBarndo" name="homeType" value="barndominium" />
-              <label for="typeBarndo">Barndominium</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeContainer" name="homeType" value="container" />
-              <label for="typeContainer">Container Home</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeADU" name="homeType" value="adu" />
-              <label for="typeADU">ADU / Guest House</label>
-            </div>
-            <div class="checkbox-option">
-              <input type="checkbox" id="typeSiteBuilt" name="homeType" value="site-built" />
-              <label for="typeSiteBuilt">Traditional Site-Built</label>
-            </div>
-          </div>
+        <div class="form-section-label">Home Type &nbsp;<span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;color:var(--gray-500);">select all that apply</span></div>
+        <div class="pill-group">
+          <div class="pill-toggle"><input type="checkbox" id="typeModular" name="homeType" value="modular" /><label for="typeModular">Modular</label></div>
+          <div class="pill-toggle"><input type="checkbox" id="typeManufactured" name="homeType" value="manufactured" /><label for="typeManufactured">Manufactured</label></div>
+          <div class="pill-toggle"><input type="checkbox" id="typeBarndo" name="homeType" value="barndominium" /><label for="typeBarndo">Barndominium</label></div>
+          <div class="pill-toggle"><input type="checkbox" id="typeContainer" name="homeType" value="container" /><label for="typeContainer">Container Home</label></div>
+          <div class="pill-toggle"><input type="checkbox" id="typeADU" name="homeType" value="adu" /><label for="typeADU">ADU / Guest House</label></div>
+          <div class="pill-toggle"><input type="checkbox" id="typeSiteBuilt" name="homeType" value="site-built" /><label for="typeSiteBuilt">Site-Built</label></div>
         </div>
 
-        <div class="form-section-title">Home Size</div>
-        <div class="form-group">
-          <label>Number of Bedrooms Needed</label>
-          <div class="checkbox-grid">
-            <div class="sq-checkbox-option">
-              <input type="radio" id="bed1" name="bedrooms" value="1" />
-              <label for="bed1">1 Bedroom</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="bed2" name="bedrooms" value="2" />
-              <label for="bed2">2 Bedrooms</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="bed3" name="bedrooms" value="3" />
-              <label for="bed3">3 Bedrooms</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="bed4" name="bedrooms" value="4+" />
-              <label for="bed4">4+ Bedrooms</label>
-            </div>
-          </div>
+        <div class="form-section-label" style="margin-top:22px;">Bedrooms</div>
+        <div class="seg-group">
+          <div class="seg-option"><input type="radio" id="bed1" name="bedrooms" value="1" /><label for="bed1">1</label></div>
+          <div class="seg-option"><input type="radio" id="bed2" name="bedrooms" value="2" /><label for="bed2">2</label></div>
+          <div class="seg-option"><input type="radio" id="bed3" name="bedrooms" value="3" /><label for="bed3">3</label></div>
+          <div class="seg-option"><input type="radio" id="bed4" name="bedrooms" value="4+" /><label for="bed4">4+</label></div>
         </div>
-        <div class="form-group" style="margin-top:16px;">
-          <label>Desired Home Size</label>
-          <div class="checkbox-grid">
-            <div class="sq-checkbox-option">
-              <input type="radio" id="sq1" name="sqft" value="399-899" />
-              <label for="sq1">399 – 899 sq ft</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="sq2" name="sqft" value="1000-1500" />
-              <label for="sq2">1,000 – 1,500 sq ft</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="sq3" name="sqft" value="1500-2000" />
-              <label for="sq3">1,500 – 2,000 sq ft</label>
-            </div>
-            <div class="sq-checkbox-option">
-              <input type="radio" id="sq4" name="sqft" value="2000+" />
-              <label for="sq4">2,000+ sq ft</label>
-            </div>
+
+        <div class="form-section-label" style="margin-top:22px;">Home Size</div>
+        <div class="slider-wrap">
+          <input type="range" id="sizeSlider" name="sqft" min="0" max="3" step="1" value="1" />
+          <div class="slider-ticks">
+            <span class="slider-tick">399–899<br/>sq ft</span>
+            <span class="slider-tick active">1,000–1,500<br/>sq ft</span>
+            <span class="slider-tick">1,500–2,000<br/>sq ft</span>
+            <span class="slider-tick">2,000+<br/>sq ft</span>
           </div>
         </div>
 
@@ -1487,6 +1431,22 @@
       }
     });
   });
+
+  // Home size slider
+  var sizeLabels = ['399–899 sq ft', '1,000–1,500 sq ft', '1,500–2,000 sq ft', '2,000+ sq ft'];
+  var sizeValues = ['399-899', '1000-1500', '1500-2000', '2000+'];
+  var slider = document.getElementById('sizeSlider');
+  var ticks = document.querySelectorAll('.slider-tick');
+
+  function updateSlider() {
+    var val = parseInt(slider.value);
+    ticks.forEach(function(t, i) { t.classList.toggle('active', i === val); });
+    var pct = (val / 3) * 100;
+    slider.style.background = 'linear-gradient(to right, #c8903a ' + pct + '%, #e8e8e8 ' + pct + '%)';
+  }
+
+  slider.addEventListener('input', updateSlider);
+  updateSlider();
 
   // Form submission
   document.getElementById('prequalForm').addEventListener('submit', function(e) {
