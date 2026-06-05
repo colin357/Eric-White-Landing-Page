@@ -398,22 +398,23 @@
     }
 
     @media (max-width: 700px) {
-      .home-types { padding-left: 0; padding-right: 0; }
+      .home-types { padding-left: 0; padding-right: 0; overflow: hidden; }
       .home-types .header-row { padding: 0 24px; margin-bottom: 32px; }
-      .home-types .section-inner { max-width: 100%; padding: 0; }
+      .home-types .section-inner { max-width: 100%; padding: 0; overflow: visible; }
       .types-grid {
         display: flex;
-        overflow-x: auto;
+        overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 12px;
-        padding: 4px 13vw 20px;
-        scroll-padding-inline: 13vw;
+        gap: 16px;
+        /* card is 68vw, so (100vw - 68vw) / 2 = 16vw peek on each side */
+        padding: 4px 16vw 20px;
         scrollbar-width: none;
       }
       .types-grid::-webkit-scrollbar { display: none; }
       .type-card {
-        flex: 0 0 74vw;
+        flex: 0 0 68vw;
+        min-width: 0;
         scroll-snap-align: center;
       }
     }
