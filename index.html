@@ -397,6 +397,29 @@
       line-height: 1.65;
     }
 
+    @media (max-width: 700px) {
+      .home-types { padding-left: 0; padding-right: 0; }
+      .home-types .header-row { padding: 0 24px; margin-bottom: 32px; }
+      .home-types .section-inner { max-width: 100%; padding: 0; }
+      .types-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding: 4px 24px 20px;
+        scrollbar-width: none;
+      }
+      .types-grid::-webkit-scrollbar { display: none; }
+      .type-card {
+        flex: 0 0 76vw;
+        max-width: 320px;
+        scroll-snap-align: center;
+      }
+      .type-card:first-child { scroll-snap-align: start; }
+      .type-card:last-child  { scroll-snap-align: end; margin-right: 24px; }
+    }
+
     /* ── WHY US ─────────────────────────────────────── */
     .why-us { background: var(--white); }
 
