@@ -485,24 +485,24 @@
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2px;
+      gap: 20px;
       margin-top: 56px;
-      background: #222;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
     }
 
     .step {
-      background: var(--dark);
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-lg);
       padding: 36px 28px;
       position: relative;
     }
 
     .step-num {
       font-family: 'Playfair Display', serif;
-      font-size: 52px;
+      font-size: 48px;
       font-weight: 800;
-      color: rgba(200,144,58,0.2);
+      color: var(--gold);
       line-height: 1;
       margin-bottom: 16px;
     }
@@ -516,8 +516,8 @@
 
     .step p {
       font-size: 14px;
-      color: #888;
-      line-height: 1.65;
+      color: #bbb;
+      line-height: 1.7;
     }
 
     /* ── FORM SECTION ───────────────────────────────── */
