@@ -1050,6 +1050,7 @@
       transform: none;
     }
   </style>
+  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
 </head>
 <body>
 
@@ -1419,8 +1420,7 @@
 </footer>
 
 <script>
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  window.scrollTo(0, 0);
+  window.addEventListener('load', function() { window.scrollTo(0, 0); });
 
   // Conditional land fields
   document.querySelectorAll('input[name="ownsLand"]').forEach(function(radio) {
